@@ -6,12 +6,16 @@ logging.basicConfig(filename='bot.log', level=logging.INFO)
 
 def greet_user(update, context):
     print('Вызван /start')
-    update.message.reply_text('Привет, случайный посетитель!')
+    update.message.reply_text('Иди своей дорогой, Сталкер...')
 
 def talk_to_me(update, context):
     text = update.message.text
     print(text)
-    update.message.reply_text(text)
+    if text == "Хабар":
+        update.message.reply_text("Здесь нет хабара")
+    else:
+        update.message.reply_text(text)
+        
 
 def main ():
     mybot = Updater(settings.API_KEY, use_context=True)
